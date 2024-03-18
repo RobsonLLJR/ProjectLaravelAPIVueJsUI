@@ -8,15 +8,13 @@ use App\Models\ServiceResponse;
 
 class TaskController extends Controller
 {
-    protected $task;
     protected $serviceResponse;
     public function __construct(){
-        $this->task = new Task();
         $this->serviceResponse = new ServiceResponse();
     }
     public function index()
     {
-        $this->serviceResponse->data = $this->task->all();
+        $this->serviceResponse->data = Task::orderBy('DateCreated', 'DESC')->get();
         $this->serviceResponse->message = 'Tarefas encontradas com sucesso.';
         $this->serviceResponse->success = true;
         return $this->serviceResponse;

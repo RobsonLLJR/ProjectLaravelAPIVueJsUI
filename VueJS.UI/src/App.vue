@@ -4,7 +4,7 @@
 <template>
   <nav class="navbar bg-dark navbar-expand-sm" data-bs-theme="dark">
     <div class="container-fluid">
-      <RouterLink class="navbar-brand" to="/">Challenge StefaniniGroup</RouterLink>
+      <RouterLink class="navbar-brand" to="/">Laravel API/VueJS UI</RouterLink>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
