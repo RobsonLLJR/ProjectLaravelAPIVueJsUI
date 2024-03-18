@@ -12,14 +12,13 @@ class TaskController extends Controller
     protected $serviceResponse;
     public function __construct(){
         $this->task = new Task();
+        $this->serviceResponse = new ServiceResponse();
     }
     public function index()
     {
-        $this->serviceResponse = new ServiceResponse
-        (
-            $this->task->all(),
-            'Tarefas encontradas com sucesso.'
-        );
+        $this->serviceResponse->data = $this->task->all();
+        $this->serviceResponse->message = 'Tarefas encontradas com sucesso.';
+        $this->serviceResponse->success = true;
         return $this->serviceResponse;
     }
 
