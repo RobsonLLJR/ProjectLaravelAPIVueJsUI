@@ -11,6 +11,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          <RouterLink class="nav-link active" to="/task">Tarefas</RouterLink>
         </div>
       </div>
     </div>
