@@ -1,7 +1,10 @@
+<script setup>
+  import { RouterLink, RouterView } from 'vue-router'
+</script>
 <template>
   <nav class="navbar bg-dark navbar-expand-sm" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Laravel API/VueJS UI</a>
+      <RouterLink class="navbar-brand" to="/">Challenge StefaniniGroup</RouterLink>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,5 +16,6 @@
     </div>
   </nav>
   <div class="container-fluid">
+    <RouterView />
   </div>
 </template>
