@@ -17,12 +17,16 @@ class TaskController extends Controller
         $this->serviceResponse->data = Task::orderBy('DateCreated', 'DESC')->get();
         $this->serviceResponse->message = 'Tarefas encontradas com sucesso.';
         $this->serviceResponse->success = true;
-        return $this->serviceResponse;
+        return response($this->serviceResponse, 200);
     }
 
     public function store(Request $request)
     {
-        
+        $task = Task::create($request->post());
+        $this->serviceResponse->message = 'Tarefa adicionada com sucesso.';
+        $this->serviceResponse->success = true;
+        return response($this->serviceResponse, 200);
+
     }
 
     public function show(string $id)
