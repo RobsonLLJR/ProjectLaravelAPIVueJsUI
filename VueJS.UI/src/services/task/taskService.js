@@ -5,3 +5,9 @@ export const getTask = () => {
         data
     })=> data);
 }
+
+export const postTask = (object) => {
+    return taskResource.postTask(object).then(({
+        data
+    }) => data);
+}
