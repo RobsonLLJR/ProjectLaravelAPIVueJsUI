@@ -16,7 +16,7 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
+  <div class="container">
     <RouterView />
   </div>
 </template>

@@ -1,14 +1,39 @@
 <script setup>
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { postTask } from '../../services/task/taskService';
+import Swal from 'sweetalert2';
 
 let newTask = reactive({
     title: "",
     description: "",
 });
 
+const router = useRouter();
+
 const addTask = () => {
-    console.log(newTask);
-}
+    postTask(newTask).then((response) => {
+        if (!response.success) {
+            Swal.fire({
+                text: response.message,
+                icon: "error"
+            });
+        }
+        router.push("/task");
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: response.message,
+            showConfirmButton: false,
+            timer: 800
+        });
+    }).catch(error => {
+        Swal.fire({
+            text: error.response.message,
+            icon: "error"
+        });
+    });
+};
 </script>
 
 <template>

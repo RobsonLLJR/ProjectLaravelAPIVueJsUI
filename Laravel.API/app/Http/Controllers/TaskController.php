@@ -22,11 +22,13 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $task = Task::create($request->post());
+        $task = new Task();
+        $task->set($request->title, $request->description);
+        $task->save();
+        $this->serviceResponse->data = $task;
         $this->serviceResponse->message = 'Tarefa adicionada com sucesso.';
         $this->serviceResponse->success = true;
         return response($this->serviceResponse, 200);
-
     }
 
     public function show(string $id)

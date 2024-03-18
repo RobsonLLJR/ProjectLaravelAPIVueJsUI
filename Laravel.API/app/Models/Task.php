@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\TaskStatusEnum;
 
 class Task extends Model
 {
@@ -16,4 +17,11 @@ class Task extends Model
         'DateCreated',
         'Status',
     ];
+
+    function set($title, $description){
+        $this->title = $title;
+        $this->description = $description;
+        $this->dateCreated = date('Y-m-d H:i:s');
+        $this->status = TaskStatusEnum::PEDING;
+    }
 }
